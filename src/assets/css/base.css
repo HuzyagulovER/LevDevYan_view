@@ -1,0 +1,50 @@
+:root {
+	--c-p-blue: #29193D;
+	--c-p-yellow: #F6C244;
+
+	--c-a-green: #0EC61A;
+
+	--c-white: #FFF;
+	--c-black: #000;
+	--c-grey: #9B9B9B;
+	--c-light-grey: #DADADA;
+
+	--wrapper-max-width: 1600px;
+	--container-max-width: 1250px;
+
+	--font-size: 16px;
+
+	--b-w: 0.3rem;
+	--b-r: calc(1rem / 16 * 47);
+	--b-r_logos: 1rem;
+
+	--shadow-radius: calc(1rem / 8 * 11);
+	--shadow-c-p: rgba(246, 194, 68, 0.48);
+	--shadow-c-a: rgba(14, 198, 26, 0.48);
+
+	--mobile-header-height: 8.5rem;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+}
+
+html, body {
+	min-height: 100vh;
+	overflow-x: hidden;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+#app {
+	height: 100%;
+	width: 100%;
+	flex-grow: 1;
+	overflow: hidden;
+}

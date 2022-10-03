@@ -1,0 +1,148 @@
+<template>
+  <footer class="footer">
+    <div class="footer__container container">
+      <div class="footer__contacts contacts">
+        <p class="contacts__itn">ИНН: {{ contactsData.itn }}</p>
+        <p class="contacts__psrnsp">ОГРНИП: {{ contactsData.psrnsp }}</p>
+        <a :href="'mailto:' + contactsData.email" class="contacts__email">{{
+          contactsData.email
+        }}</a>
+      </div>
+      <div class="footer__copyright">
+        <p class="footer__text">© 2022 LevDevYan</p>
+        <a :href="links.telegram[page]" class="footer__telegram">
+          <svg
+            width="46"
+            height="46"
+            viewBox="0 0 46 46"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M23 0C35.703 0 46 10.297 46 23C46 35.703 35.703 46 23 46C10.297 46 0 35.703 0 23C0 10.297 10.297 0 23 0ZM30.934 32.375C31.357 31.077 33.339 18.141 33.584 15.592C33.658 14.82 33.414 14.307 32.936 14.078C32.358 13.8 31.502 13.939 30.509 14.297C29.147 14.788 11.735 22.181 10.729 22.609C9.775 23.014 8.873 23.456 8.873 24.096C8.873 24.546 9.14 24.799 9.876 25.062C10.642 25.335 12.571 25.92 13.71 26.234C14.807 26.537 16.056 26.274 16.756 25.839C17.498 25.378 26.061 19.648 26.676 19.146C27.29 18.644 27.78 19.287 27.278 19.79C26.776 20.292 20.898 25.997 20.123 26.787C19.182 27.746 19.85 28.74 20.481 29.138C21.202 29.592 26.387 33.07 27.168 33.628C27.949 34.186 28.741 34.439 29.466 34.439C30.191 34.439 30.573 33.484 30.934 32.375Z"
+            />
+          </svg>
+        </a>
+      </div>
+      <a class="footer__policy" :href="links.policy">
+        Политика конфиденциальности
+      </a>
+    </div>
+  </footer>
+</template>
+
+<script>
+import { mapState } from "vuex";
+export default {
+  name: "Footer",
+  computed: {
+    ...mapState(["links", "page", "contactsData"]),
+  },
+};
+</script>
+
+<style lang="scss">
+.footer {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 0;
+  }
+
+  &__copyright {
+    display: flex;
+    align-items: center;
+    order: 1;
+  }
+
+  &__text {
+    color: var(--c-grey);
+    font-size: 1.38rem;
+    margin-right: 2rem;
+  }
+
+  &__telegram {
+    width: 2.9rem;
+    height: 2.9rem;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__policy {
+    color: var(--c-grey);
+    font-size: 1.38rem;
+    order: 2;
+  }
+
+  .contacts {
+    display: flex;
+    flex-direction: column;
+    order: 3;
+
+    & > * {
+      margin-bottom: 0.3rem;
+      font-size: 1.2rem;
+      line-height: 1.2rem;
+    }
+
+    &__itn {
+    }
+
+    &__psrnsp {
+    }
+
+    &__email {
+    }
+  }
+}
+.avocado {
+  .footer {
+    &__telegram {
+      path {
+        fill: var(--c-a-green);
+      }
+    }
+  }
+}
+.psy,
+.signin {
+  .footer {
+    &__telegram {
+      path {
+        fill: var(--c-p-yellow);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    .container {
+      display: grid;
+      grid-template: 1fr 1fr / 1fr 1fr;
+      row-gap: 1rem;
+      grid-row-gap: 1rem;
+
+      & > * {
+        order: unset;
+      }
+    }
+
+    .contacts {
+      grid-column: 1/3;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &__policy {
+      text-align: right;
+    }
+  }
+}
+</style>
